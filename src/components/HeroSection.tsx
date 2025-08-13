@@ -19,7 +19,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     { number: "2025", text: "College ended this year" },
     { number: "132", text: "Liters of coffee consumed this year" },
     { number: "73K", text: "Total lines of code deployed" },
-    { number: "10+", text: "Projects delivered successfully" }
+    { number: "10+", text: "Projects delivered successfully" },
   ];
 
   const blogPosts = [
@@ -45,64 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     }
   ];
 
-  useEffect(() => {
-  const canvas = canvasRef.current;
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
-
-  canvas.width = 463;
-  canvas.height = 855;
-
-  let animationId: number;
-  let time = 0;
-
-  const animate = () => {
-    time += 0.003; // slower for smooth feel
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw multiple soft gradients (layers)
-    const drawLayer = (
-      hueBase: number,
-      xOffset: number,
-      yOffset: number,
-      alpha: number,
-      speedMult: number
-    ) => {
-      const grad = ctx.createRadialGradient(
-        canvas.width * (0.5 + Math.sin(time * speedMult + xOffset) * 0.2),
-        canvas.height * (0.5 + Math.cos(time * speedMult + yOffset) * 0.2),
-        50,
-        canvas.width / 2,
-        canvas.height / 2,
-        canvas.width
-      );
-
-      grad.addColorStop(0, `hsla(${hueBase + Math.sin(time * 0.5) * 30}, 90%, 70%, ${alpha})`);
-      grad.addColorStop(1, `hsla(${hueBase + 60}, 90%, 40%, 0)`);
-
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    };
-
-    // Layer combinations — subtle hue shifts
-    drawLayer(200, 0, 0, 0.6, 1.2);  // blue-cyan
-    drawLayer(280, 2, 1, 0.5, 0.8);  // purple
-    drawLayer(150, -1, 2, 0.4, 1.5); // teal-green
-    drawLayer(220, 1, -2, 0.3, 1.0); // soft blue
-
-    animationId = requestAnimationFrame(animate);
-  };
-
-  animate();
-
-  return () => {
-    if (animationId) cancelAnimationFrame(animationId);
-  };
-}, []);
-
+  useEffect(() => { // Animated gradient canvas const canvas = canvasRef.current; if (!canvas) return; const ctx = canvas.getContext('2d'); if (!ctx) return; canvas.width = 463; canvas.height = 855; let animationId: number; let time = 0; const animate = () => { time += 0.01; // Create gradient const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height); gradient.addColorStop(0, hsl(${240 + Math.sin(time) * 30}, 70%, 60%)); gradient.addColorStop(0.5, hsl(${280 + Math.cos(time * 0.7) * 40}, 80%, 65%)); gradient.addColorStop(1, hsl(${160 + Math.sin(time * 1.2) * 50}, 75%, 55%)); ctx.fillStyle = gradient; ctx.fillRect(0, 0, canvas.width, canvas.height); animationId = requestAnimationFrame(animate); }; animate(); return () => { if (animationId) { cancelAnimationFrame(animationId); } }; }, []);
 
   useEffect(() => {
     // Grain effect

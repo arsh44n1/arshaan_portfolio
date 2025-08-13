@@ -15,11 +15,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({ scrollToSection }) => {
             alt="Arshaan Khan"
             className="about-video"
           />
+          {/*
           <img 
             src="" 
             alt="Arshaan"
             className="about-video-overlay"
           />
+          */}
         </div>
         <div className="text">
           <p>

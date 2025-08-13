@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const canvas = canvasRef.current;
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
   canvas.width = 463;
@@ -59,19 +59,39 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   let time = 0;
 
   const animate = () => {
-    time += 0.005; // slower for smoother waves
+    time += 0.003; // slower for smooth feel
 
-    // We'll use radial gradients layered for a smooth aurora feel
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Colors inspired by the screenshot's aurora effect
-    gradient.addColorStop(0, `hsl(${200 + Math.sin(time) * 20}, 90%, 65%)`); // cyan-blue
-    gradient.addColorStop(0.3, `hsl(${270 + Math.cos(time * 1.3) * 25}, 80%, 70%)`); // purple-blue
-    gradient.addColorStop(0.6, `hsl(${160 + Math.sin(time * 0.9) * 20}, 80%, 55%)`); // teal-green
-    gradient.addColorStop(1, `hsl(${220 + Math.cos(time * 0.6) * 15}, 85%, 60%)`); // soft blue
+    // Draw multiple soft gradients (layers)
+    const drawLayer = (
+      hueBase: number,
+      xOffset: number,
+      yOffset: number,
+      alpha: number,
+      speedMult: number
+    ) => {
+      const grad = ctx.createRadialGradient(
+        canvas.width * (0.5 + Math.sin(time * speedMult + xOffset) * 0.2),
+        canvas.height * (0.5 + Math.cos(time * speedMult + yOffset) * 0.2),
+        50,
+        canvas.width / 2,
+        canvas.height / 2,
+        canvas.width
+      );
 
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, `hsla(${hueBase + Math.sin(time * 0.5) * 30}, 90%, 70%, ${alpha})`);
+      grad.addColorStop(1, `hsla(${hueBase + 60}, 90%, 40%, 0)`);
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
+    // Layer combinations — subtle hue shifts
+    drawLayer(200, 0, 0, 0.6, 1.2);  // blue-cyan
+    drawLayer(280, 2, 1, 0.5, 0.8);  // purple
+    drawLayer(150, -1, 2, 0.4, 1.5); // teal-green
+    drawLayer(220, 1, -2, 0.3, 1.0); // soft blue
 
     animationId = requestAnimationFrame(animate);
   };
@@ -82,6 +102,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     if (animationId) cancelAnimationFrame(animationId);
   };
 }, []);
+
 
   useEffect(() => {
     // Grain effect

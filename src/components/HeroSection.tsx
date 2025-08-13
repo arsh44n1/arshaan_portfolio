@@ -83,7 +83,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 }, []);
 
-
   useEffect(() => {
     // Grain effect
     const grainCanvas = grainCanvasRef.current;

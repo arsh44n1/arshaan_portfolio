@@ -209,7 +209,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div className="blog-slider">
                 <div className="blog-slide">
-                  <img src="https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=280&h=150&fit=crop" alt="React Performance" />
+                  <img src="https://www.freepik.com/free-ai-image/abstract-cybersecurity-concept-design_352784966.htm#fromView=search&page=1&position=8&uuid=f785beab-0153-4e46-99f8-f0a870f476a7&query=AI+brain" alt="React Performance" />
                   <p>Performance optimization for React 19 - all you need.</p>
                 </div>
               </div>

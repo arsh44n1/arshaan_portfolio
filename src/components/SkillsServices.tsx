@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import aiIcon from '../asset/artificial-intelligence_17556437.webp';
+import aiIcon from 'src/asset/artificial-intelligence_17556437.webp';
 
 const SkillsServices: React.FC = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);

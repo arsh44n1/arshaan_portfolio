@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       image: "/api/placeholder/280/150"
     },
     {
-      title: "Building a responsive design system with Tailwind CSS.",
+      title: "Building a responjnjsive design system with Tailwind CSS.",
       image: "/api/placeholder/280/150"
     }
   ];

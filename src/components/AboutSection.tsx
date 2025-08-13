@@ -24,7 +24,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ scrollToSection }) => {
         <div className="text">
           <p>
             <span className="word">I'm </span>
-            <span className="word">a </span>
+            <span className="word">an</span>
             <span className="word">AI </span>
             <span className="word">Automater </span>
             <span className="word">,business </span>

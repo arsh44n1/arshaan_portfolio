@@ -17,7 +17,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   const circleStats = [
     { number: "2025", text: "College ended this year" },
-    { number: "132", text: "Liters of coffee consumed this year" },
+    { number: "52", text: "Liters of coffee consumed this year" },
     { number: "73K", text: "Total lines of code deployed" },
     { number: "10+", text: "Projects delivered successfully" }
   ];

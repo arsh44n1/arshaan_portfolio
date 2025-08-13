@@ -9,13 +9,13 @@ const SelectedWork: React.FC = () => {
     },
     {
       title: "AI Voice prescription",
-      description: "Animated UI Components",
+      description: "AI meds prescriptor",
       url: "https://github.com/arsh44n/AI-Voice-Prescription"
     },
     {
-      title: "IP Wire",
-      description: "Straightforward IP Tracker",
-      url: "https://github.com/arshaan-khan"
+      title: "HR Analytics dashboard",
+      description: "Business Analysis dashboard",
+      url: "https://github.com/arsh44n/HR-insight-Analytics"
     },
     {
       title: "GitHub",

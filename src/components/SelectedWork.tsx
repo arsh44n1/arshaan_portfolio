@@ -8,9 +8,9 @@ const SelectedWork: React.FC = () => {
       url: "https://neurionai.netlify.app/"
     },
     {
-      title: "React Bits",
+      title: "AI Voice prescription",
       description: "Animated UI Components",
-      url: "https://github.com/arshaan-khan"
+      url: "https://github.com/arsh44n/AI-Voice-Prescription"
     },
     {
       title: "IP Wire",

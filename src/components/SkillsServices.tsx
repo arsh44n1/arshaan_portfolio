@@ -7,7 +7,7 @@ const SkillsServices: React.FC = () => {
   const skills = [
     {
       text: ["AI", "Automation"],
-      videoSrc: "aiIcon"
+      videoSrc: aiIcon
     },
     {
       text: ["Web", "development"],

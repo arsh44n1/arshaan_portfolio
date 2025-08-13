@@ -8,12 +8,12 @@ const SelectedWork: React.FC = () => {
       url: "https://neurionai.netlify.app/"
     },
     {
-      title: "AI Voice prescription",
-      description: "AI meds prescriptor",
+      title: "AI Doctor",
+      description: "Voice-AI meds prescriptor",
       url: "https://github.com/arsh44n/AI-Voice-Prescription"
     },
     {
-      title: "HR Analytics dashboard",
+      title: "HR Analytics",
       description: "Business Analysis dashboard",
       url: "https://github.com/arsh44n/HR-insight-Analytics"
     },

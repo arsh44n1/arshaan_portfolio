@@ -16,8 +16,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ scrollToSection }) => {
             className="about-video"
           />
           <img 
-            src="ARSHAAN" 
-            alt="Coding"
+            src="" 
+            alt="Arshaan"
             className="about-video-overlay"
           />
         </div>

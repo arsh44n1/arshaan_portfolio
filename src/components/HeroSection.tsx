@@ -16,11 +16,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const grainCanvasRef = useRef<HTMLCanvasElement>(null);
 
   const circleStats = [
+    { number: "2025", text: "College ended this year" },
     { number: "132", text: "Liters of coffee consumed this year" },
-    { number: "453K", text: "Total lines of code written" },
-    { number: "3,744", text: "Critical bugs fixed ...and counting" },
-    { number: "10+", text: "Major projects delivered successfully" },
-    { number: "160K", text: "Developers inspired worldwide" }
+    { number: "73K", text: "Total lines of code deployed" },
+    { number: "10+", text: "Projects delivered successfully" },
+    {/*number: "160K", text: "Developers inspired worldwide" */}
   ];
 
   const blogPosts = [

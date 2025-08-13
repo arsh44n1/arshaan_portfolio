@@ -35,7 +35,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ scrollToSection }) => {
             <span className="word">in </span>
             <span className="word">India </span>
             <span className="word">I </span>
-            <span className="word">specialize </span>
+            <span className="word">specialized</span>
             <span className="word">in </span>
             <span className="word">AI </span>
             <span className="word">Engineering, </span>

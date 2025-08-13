@@ -6,7 +6,7 @@ const SkillsServices: React.FC = () => {
   const skills = [
     {
       text: ["AI", "Automation"],
-      videoSrc: "https://www.freepik.com/free-vector/graident-ai-robot-vectorart_125887871.htm#fromView=search&page=1&position=2&uuid=69eedb70-2001-47d9-aad7-e14d37fde04b&query=AIsrc/asset/graident-ai-robot-vectorart.png"
+      videoSrc: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=200&h=150&fit=crop"
     },
     {
       text: ["Web", "development"],

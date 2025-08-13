@@ -46,42 +46,43 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ];
 
   useEffect(() => {
-    // Animated gradient canvas
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  const canvas = canvasRef.current;
+  if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-    canvas.width = 463;
-    canvas.height = 855;
+  canvas.width = 463;
+  canvas.height = 855;
 
-    let animationId: number;
-    let time = 0;
+  let animationId: number;
+  let time = 0;
 
-    const animate = () => {
-      time += 0.01;
-      
-      // Create gradient
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, `hsl(${240 + Math.sin(time) * 30}, 70%, 60%)`);
-      gradient.addColorStop(0.5, `hsl(${280 + Math.cos(time * 0.7) * 40}, 80%, 65%)`);
-      gradient.addColorStop(1, `hsl(${160 + Math.sin(time * 1.2) * 50}, 75%, 55%)`);
+  const animate = () => {
+    time += 0.005; // slower for smoother waves
 
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // We'll use radial gradients layered for a smooth aurora feel
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
 
-      animationId = requestAnimationFrame(animate);
-    };
+    // Colors inspired by the screenshot's aurora effect
+    gradient.addColorStop(0, `hsl(${200 + Math.sin(time) * 20}, 90%, 65%)`); // cyan-blue
+    gradient.addColorStop(0.3, `hsl(${270 + Math.cos(time * 1.3) * 25}, 80%, 70%)`); // purple-blue
+    gradient.addColorStop(0.6, `hsl(${160 + Math.sin(time * 0.9) * 20}, 80%, 55%)`); // teal-green
+    gradient.addColorStop(1, `hsl(${220 + Math.cos(time * 0.6) * 15}, 85%, 60%)`); // soft blue
 
-    animate();
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, []);
+    animationId = requestAnimationFrame(animate);
+  };
+
+  animate();
+
+  return () => {
+    if (animationId) cancelAnimationFrame(animationId);
+  };
+}, []);
+
 
   useEffect(() => {
     // Grain effect

@@ -24,7 +24,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   const blogPosts = [
     {
-      title: "Performance optimization for React 19 - all you need.",
+      title: "Creating Creative Creations🧬🤖",
       image: "/api/placeholder/280/150"
     },
     {

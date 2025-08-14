@@ -202,7 +202,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   </g>
                   <defs>
                     <clipPath id="clip0_310_2">
-                      <rect width="30" height="30" fill="white"></rect>
+                      <rect width="30" height="40" fill="white"></rect>
                     </clipPath>
                   </defs>
                 </svg>

@@ -14,6 +14,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const grainCanvasRef = useRef<HTMLCanvasElement>(null);
+  const [currentBlogSlide, setCurrentBlogSlide] = useState(0);
+  const [isAutoSliding, setIsAutoSliding] = useState(true);
+  const autoSlideIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const circleStats = [
     { number: "2025", text: "College ended this year" },
@@ -44,6 +47,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       image: "/api/placeholder/280/150"
     }
   ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (isAutoSliding) {
+      autoSlideIntervalRef.current = setInterval(() => {
+        setCurrentBlogSlide(prev => (prev + 1) % blogPosts.length);
+      }, 2000);
+    }
+
+    return () => {
+      if (autoSlideIntervalRef.current) {
+        clearInterval(autoSlideIntervalRef.current);
+      }
+    };
+  }, [isAutoSliding, blogPosts.length]);
+
+  // Manual navigation handler
+  const handleManualNavigation = () => {
+    setIsAutoSliding(false);
+    setCurrentBlogSlide(prev => (prev + 1) % blogPosts.length);
+    
+    // Resume auto-sliding after 5 seconds of manual interaction
+    setTimeout(() => {
+      setIsAutoSliding(true);
+    }, 5000);
+  };
 
   useEffect(() => {
     // Animated gradient canvas
@@ -113,10 +142,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   const nextBlogSlide = () => {
-    const blogSlider = document.querySelector('#blog-slider') as any;
-    if (blogSlider && blogSlider.swiper) {
-      blogSlider.swiper.slideNext();
-    }
+    handleManualNavigation();
   };
 
   return (
@@ -207,10 +233,80 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   </defs>
                 </svg>
               </div>
-              <div className="blog-slider">
-                <div className="blog-slide">
-                  <img src="src/asset/artificial-intelligence_17556437.webp" alt="React Performance" />
-                  <p>Creating Creative Creations🧬🤖</p>
+              <div className="blog-slider" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div 
+                  className="blog-slides-container" 
+                  style={{
+                    display: 'flex',
+                    transform: `translateX(-${currentBlogSlide * 100}%)`,
+                    transition: 'transform 0.5s ease-in-out',
+                    width: `${blogPosts.length * 100}%`
+                  }}
+                >
+                  {blogPosts.map((post, index) => (
+                    <div 
+                      key={index}
+                      className="blog-slide"
+                      style={{
+                        width: `${100 / blogPosts.length}%`,
+                        flexShrink: 0
+                      }}
+                    >
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        style={{
+                          width: '100%',
+                          height: '150px',
+                          objectFit: 'cover',
+                          borderRadius: '20px',
+                          marginBottom: '1em'
+                        }}
+                      />
+                      <p style={{
+                        width: '15ch',
+                        fontSize: '1.6rem',
+                        fontWeight: '400',
+                        color: '#f9f8f6',
+                        lineHeight: '1.2'
+                      }}>
+                        {post.title}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Slide indicators */}
+                <div 
+                  className="blog-slide-indicators"
+                  style={{
+                    position: 'absolute',
+                    bottom: '10px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'flex',
+                    gap: '8px',
+                    zIndex: 10
+                  }}
+                >
+                  {blogPosts.map((_, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '50%',
+                        backgroundColor: index === currentBlogSlide ? '#f9f8f6' : 'rgba(249, 248, 246, 0.3)',
+                        transition: 'background-color 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => {
+                        setCurrentBlogSlide(index);
+                        setIsAutoSliding(false);
+                        setTimeout(() => setIsAutoSliding(true), 5000);
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

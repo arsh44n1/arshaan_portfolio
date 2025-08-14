@@ -153,7 +153,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </svg>
               <h1 className="title">
                 <p>
-                  <span className="word">equal </span>
+                  <span className="word">Equal </span>
                   <span className="word">parts </span>
                   <span className="word">CrEaTiVe </span>
                   <span className="word">Engineer </span>

@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       title: "Creating Creative Creations🧬🤖",
       image: "src/asset/graident-ai-robot-vectorart.png" 
     },
-    {
+    { 
       title: "The 7 steps of building scalable React apps.",
       image: "/api/placeholder/280/150"
     },

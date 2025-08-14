@@ -209,7 +209,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div className="blog-slider">
                 <div className="blog-slide">
-                  <img src="src/asset/graident-ai-robot-vectorart.png" alt="React Performance" />
+                  <img src="src/asset/artificial-intelligence_17556437.webp" alt="React Performance" />
                   <p>Creating Creative Creations🧬🤖</p>
                 </div>
               </div>

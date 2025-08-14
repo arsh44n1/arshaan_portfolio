@@ -156,7 +156,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="word">Equal </span>
                   <span className="word">parts </span>
                   <span className="word">creative </span>
-                  <span className="word">developer </span>
+                  <span className="word">Engineer </span>
                   <span className="word">& </span>
                   <span className="word">designer </span>
                 </p>

@@ -11,7 +11,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ scrollToSection }) => {
       <div className="about-content">
         <div className="videos">
           <img 
-            src="src/asset/ChatGPT Image Apr 20, 2025 at 07_12_54 AM (1).png" 
+            src="Photo by ranid ox from Pexels: https://www.pexels.com/photo/33430219/" 
             alt="Arshaan Khan"
             className="about-video"
           />

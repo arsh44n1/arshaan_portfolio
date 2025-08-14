@@ -153,12 +153,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </svg>
               <h1 className="title">
                 <p>
-                  <span className="word">Equal </span>
+                  <span className="word">equal </span>
                   <span className="word">parts </span>
-                  <span className="word">creative </span>
+                  <span className="word">CrEaTiVe </span>
                   <span className="word">Engineer </span>
                   <span className="word"> & </span>
-                  <span className="word">designer </span>
+                  <span className="word">Designer </span>
                 </p>
               </h1>
               <a className="scroll-indicator" href="#about" onClick={() => scrollToSection('about')}>
